@@ -21,11 +21,11 @@ RUN apt-get update
 # By default the deb packages fetch kernel headers from raspbian. We need to use our balenaOS ones.
 # We manually extract the DKMS deb packages and compile the modules
 
-# Compile the aiy vision bonnet mcu modules
+# Extract the aiy vision bonnet mcu modules. We compile on device based on that os version
 RUN apt-get download aiy-dkms
 RUN mkdir aiy-dkms && mv aiy-dkms*.deb aiy-dkms && cd aiy-dkms && ar x aiy-dkms*.deb && tar -xf data.tar.xz
 
-# Compile the aiy vision bonnet myriad chip vision module
+# Extract the aiy vision bonnet myriad chip kernel module. We compile on device based on that os version
 RUN apt-get download aiy-vision-dkms
 RUN mkdir aiy-vision-dkms && mv aiy-vision-dkms*.deb aiy-vision-dkms && cd aiy-vision-dkms && ar x aiy-vision-dkms*.deb && tar -xf data.tar.xz
 
