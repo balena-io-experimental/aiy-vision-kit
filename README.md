@@ -1,7 +1,19 @@
 # aiy-vision-kit
 Example project using the Google AIY Vision Kit
 
-The [Google AIY Vision kit](https://aiyprojects.withgoogle.com/vision/) is an interesting piece of hardware. It has a Pi 0 HAT that has the Intel Movidius Myriad neural compute chip. A key feature of the HAT is that it directly taps into the camera stream instead of relying on the Pi to fetch the video and then copy it to the compute chip for Machine Learning.
+The [Google AIY Vision kit](https://aiyprojects.withgoogle.com/vision/) is an interesting piece of hardware.
+
+### AIY Vision Kit
+![](images/aiy_kit.jpg )
+
+### Assembled
+![](images/aiy_kit_assembled.jpg)
+
+### Inside look
+![](images/inside_look.jpg)
+
+
+It has a Pi 0 HAT that has the Intel Movidius Myriad neural compute chip. A key feature of the HAT is that it directly taps into the camera stream instead of relying on the Pi to fetch the video and then copy it to the compute chip for Machine Learning.
 
 Google provides a customized Raspbian image alongside the kit. The Raspbian image comes with custom firmware for the myriad HAT, custom kernel modules for the HAT and some example modules.
 
@@ -13,6 +25,11 @@ The `Dockerfile` and `run.sh` have quite a few comments to follow what is going 
 You will need the following variables in your device/fleet configuration
 - `RESIN_HOST_CONFIG_gpu_mem` : `128`
 - `RESIN_HOST_CONFIG_start_x` : `1`
+
+#### Application container output_path
+Notice the `avg_joy_score` when the kit is running :)
+
+![](images/joy_detector.png)
 
 #### Some notes:
 Google provides DKMS deb packages for the kernel modules needed by the HAT. By default they compile using the raspbian kernel headers. We needed to extract the kernel sources and compile the module using the balenaOS kernel headers.
